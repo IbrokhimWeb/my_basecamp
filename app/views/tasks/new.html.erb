@@ -1,0 +1,60 @@
+
+<%= form_for([@task.project, @task]) do |f| %>
+
+
+<section class="vh-100" style="background-color: #eee;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-lg-9 col-xl-7">
+        <div class="card rounded-3">
+          <div class="card-body p-4">
+
+            <h4 class="text-center my-3 pb-3">To Do App</h4>
+
+            <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2">
+              <div class="col-12">
+                <div class="form-outline">
+                  <%= f.text_area :name, class:"form-control", id: "form1" %>
+                  <label class="form-label" for="form1">Enter a task here</label>
+                
+                </div>
+              </div>
+
+              <div class="col-12">
+                <%= f.submit "Creat Task", class:"btn btn-primary"%><%= link_to "Back", project_path(@project), class: "btn btn-primary"%>
+                
+              </div>
+            </form>
+              <% end %>
+            <table class="table mb-4">
+              <thead>
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @tasks.each do |task| %>
+                <% if task.persisted? %>
+                <tr>
+                  <th scope="row"><%= task.id %></th>
+                  <td><%= task.name %></td>
+                  <td>
+                    <%= link_to 'Destroy', [task.project, task], 'data-turbo-method': :delete, class:"btn btn-danger" %>
+                    <%= link_to 'Edit', edit_project_task_path(task.project, task), class: "btn btn-success ms-1"  %>
+                    
+                  </td>
+                </tr>
+                <% end %>
+                <% end %>
+
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

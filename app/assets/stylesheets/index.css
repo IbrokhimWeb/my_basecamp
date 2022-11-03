@@ -1,0 +1,82 @@
+.body-1{
+  background-color:rgb(235, 239, 235);
+  color: grey;
+  
+}
+
+
+.container .start{
+  display: flex;
+  height: 50px;
+}
+.container .h1{
+  margin-top: 10px;
+  text-align:left;
+  margin-bottom: 150px;
+  font-size: 40px;
+  color: black;
+}
+.container .h2_text{
+  margin-top: 300px;
+  text-align:center;
+  font-size: 60px;
+  color: black;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+  .p_text{
+    margin-top: 80px;
+    text-align:center;
+    font-size: 30px;
+    color: black;
+    font-family:Arial, Helvetica, sans-serif;
+  }
+
+.container .button{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.btn{
+  border-radius: 8px !important; 
+  margin-right: 15px;
+}
+
+.new__project{
+  padding: 10px 30px;
+  border-radius: 8px;
+}
+
+.container .button .btn{
+  background-color: rgb(17, 13, 13);
+  width: 250px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 23px;
+  border-radius:25%;
+  background-color:#62947d;
+}
+
+.container .button .btn:hover{
+  background-color: rgb(238, 230, 230);
+  color: rgb(12, 12, 12);
+  border: 2px solid rgb(26, 25, 25);
+}
+
+.h1-project {
+  font-size: 100px;
+  color: black;
+  font-family: 'Courier New', Courier, monospace;
+  text-align: center;
+}
+
+.navbar .container-fluid .collapse{
+  display: flex;
+  justify-content: end;
+  /* background-color: white; */
+  cursor: pointer;
+}

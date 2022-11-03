@@ -1,0 +1,18 @@
+<%= render 'form' %>
+<div class="peo">
+<div class="project-name"><h1><%= @project.name %></h1></div>
+    <div class="edit-delete">
+    
+    <p><%= link_to "Attachment", new_project_upl_path(@project), class: "btn__btn" %></p> <br />
+    <p><%= link_to "Posts", project_posts_path(@project), class: "btn__btn" %></p> <br />
+    <p><%= link_to "Tasks", new_project_task_path(@project), class: "btn__btn" %></p>
+    <%= link_to "Back", root_path , class: "btn__btn"%>
+    <button type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal"  class="project-edit">Edit</button>
+     <%= button_to "Delete", @project, method: :delete , class:"project-delete"  %> 
+      
+      
+
+
+    </div>
+   
+</div>

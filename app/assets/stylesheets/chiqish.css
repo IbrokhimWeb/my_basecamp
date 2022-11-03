@@ -1,0 +1,19 @@
+.body-2_1{
+  padding-bottom: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(235, 239, 235);
+}
+.body-2_1 h2{
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 35px;
+}
+.body-2_1 .box{
+  padding: 10px;
+  display: flex;
+  justify-content:center;
+  }

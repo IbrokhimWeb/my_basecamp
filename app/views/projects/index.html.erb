@@ -1,0 +1,14 @@
+<h1 class="h1-project">Projects</h1>
+
+<%= stylesheet_link_tag "register" %>
+<div id="projects">
+  <% @projects.each do |project| %>
+    <%= render project %>
+    <p>
+      <%= link_to "Show this project", project %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New project", new_project_path %>
+<%= link_to "sign out", new_user_session_path %>

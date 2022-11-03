@@ -1,0 +1,46 @@
+<%= stylesheet_link_tag "my" %>
+
+<body class="body-1">
+
+
+
+  <div class="container">
+    <% if current_user %>
+          <div class="row">
+      <% @projects.each do |project| %>
+          <% if current_user.id == project.user.id %>
+
+
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%= project.name %></h5>
+      <p class="card-text"><%= project.description %></p>
+      <%= link_to "Show", project, class:"card-link mt-4 btn btn-primary" %>
+    </div>
+  </div>
+  <% end %>
+  <% end %>
+  </div>
+  </div>
+  <%= render 'projects/form' %>
+
+  <% else %>
+  <div>
+       
+
+  </div>
+  <div class="card__1">
+      <div>
+        <img style="width:300px;" src="https://cdn.worldvectorlogo.com/logos/basecamp-logo-2019-1.svg" alt="">
+      </div>
+      <div class="button">
+        <%= link_to "Sign Up!", new_user_registration_path , class:"btn__5" %>
+        <%= link_to "Sign In!", new_user_session_path , class:"btn__5"%>
+      </div>
+  </div>
+  <% end %>
+
+</div>
+
+
+</body>

@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @upl %>
+
+<div>
+  <%= link_to "Edit this upl", edit_upl_path(@upl) %> |
+  <%= link_to "Back to upls", upls_path %>
+
+  <%= button_to "Destroy this upl", @upl, method: :delete %>
+</div>

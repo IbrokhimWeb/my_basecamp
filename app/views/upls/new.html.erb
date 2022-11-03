@@ -1,0 +1,88 @@
+
+<%= form_for([@upl.project, @upl]) do |f| %>
+  <% if @upl.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@upl.errors.count, "error") %> prohibited this upl from being saved:</h2>
+
+      <ul>
+      <% @upl.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<section class="vh-100" style="background-color: #eee;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-lg-9 col-xl-7">
+        <div class="card rounded-3">
+          <div class="card-body p-4">
+
+            <h2 class="text-center my-3 pb-3">To Do App</h2>
+
+            <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2">
+              <div class="col-12">
+                <div class="form-outline">
+                  <%= f.file_field :upler, class:"form-control", id: "form1" %> <br/>
+                  <%= f.text_area :name, class:"form-control", id: "form1" %>
+                  <label class="form-label" for="form1">Enter a upl here</label>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <%= f.submit "Creat upl", class:"btn btn-primary"%><%= link_to "Back", project_path(@project), class: "btn btn-primary"%>
+
+                
+              </div>
+            </form>
+              <% end %>
+            <table class="table mb-4">
+              <thead>
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @upls.each do |upl| %>
+                  <% if upl.upler.attached? %>
+                <% if upl.persisted? %>
+                <tr>
+                  <th scope="row"><%= upl.id %></th>
+                  <td><%= upl.name %></td>
+
+                  <% if  upl.upler.image?%>
+                  <td><a href="#"><%= link_to upl.upler.filename,  rails_blob_path(upl.upler, disposition: "attachment") %>
+                  <% elsif upl.upler.audio? %>
+                  <td>
+                  <a href="#"><%= upl.upler.filename %>
+                  <audio controls>
+                   <source src=" <%= rails_blob_url(upl.upler, disposition: "attachment") %>" type="audio/mpeg"/>
+                   </audio></a>
+                   </td>
+                  <% else %>
+                  <td>
+                  <%= link_to upl.upler.filename,  rails_blob_path(upl.upler, disposition: "attachment") %>
+                  </td>
+                  <% end %>
+
+                  <td>
+                    <%= link_to 'Destroy', [upl.project, upl], 'data-turbo-method': :delete, class:"btn btn-danger" %>
+                    <%= link_to 'Edit', edit_project_upl_path(upl.project, upl), class: "btn btn-success ms-1"  %>
+                  </td>
+                </tr>
+                <%end%>
+                <% end %>
+                <% end %>
+
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

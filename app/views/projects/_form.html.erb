@@ -1,0 +1,48 @@
+<%= form_with(model: @project) do |form| %>
+  <% if @project.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize( @project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+        <% @project.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Name this project:</label>
+            <%= form.text_field :name, class:"form-control" %>
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Add an optional description:</label>
+                <%= form.text_area :description, class:"form-control" %>
+                  <%= form.number_field :user_id, id: :project_user_id, value: current_user.id, type: :hidden %>
+
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light border border-success p-2 mb-2 border-opacity-75 text-success" data-bs-dismiss="modal">Never mind</button>
+    <%= form.submit class:"btn btn-success" %>
+
+      </div>
+    </div>
+  </div>
+</div>
+  <div>
+  </div>
+
+
+<% end %>

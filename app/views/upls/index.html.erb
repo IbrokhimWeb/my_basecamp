@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Upls</h1>
+
+<div id="upls">
+  <% @upls.each do |upl| %>
+    <%= render upl %>
+    <p>
+      <%= link_to "Show this upl", upl %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New upl", new_upl_path %>

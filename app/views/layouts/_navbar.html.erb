@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-warning">
+  <div class="container-fluid">
+  <a class="basecamp" href="/">
+    <h1 class="text-light">Basecamp</h1>
+  </a>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      
+       
+         
+            
+            <%= link_to "Edit Account", edit_user_registration_path, class:"btn btn-success mx-2" %> 
+            <%= link_to 'Logout', destroy_user_session_path, 'data-turbo-method': :delete, class:"btn btn-danger" %>
+           
+      
+    </div>
+  </div>
+</nav>
+
+
+<div class = "box">
+<h1 class="h1-projec"></h1> 
+<div class ="container_p">
+
+<%- if controller_name == 'pages' %>
+     
+<% end %>
+
+
+<%- if controller_name == 'pages' %>
+          <button type="button" class="new__project btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">New Project</button>
+        <% end %>
+</div>
+</div>
